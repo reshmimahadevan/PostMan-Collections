@@ -1,0 +1,33 @@
+{
+	"id": "9195b3f1-f526-4c70-b05e-4259429e2080",
+	"name": "ContactsPROD",
+	"values": [
+		{
+			"key": "baseURL",
+			"value": "https://www.abc.com",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "username",
+			"value": "reshmiprod",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "password",
+			"value": "reshmiprod",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "age",
+			"value": "23",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2025-03-20T00:53:43.413Z",
+	"_postman_exported_using": "Postman/11.37.1"
+}

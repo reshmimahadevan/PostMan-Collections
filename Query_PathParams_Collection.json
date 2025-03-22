@@ -1,0 +1,130 @@
+{
+	"info": {
+		"_postman_id": "a2a3bb05-b702-412c-b56b-874385d57a8e",
+		"name": "Query_PathParams",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31594035"
+	},
+	"item": [
+		{
+			"name": "GetUsersWithQuery",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer e4b8e1f593dc4a731a153c5ec8cc9b8bbb583ae964ce650a741113091b4e2ac6"
+					}
+				],
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/users?gender=female",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users"
+					],
+					"query": [
+						{
+							"key": "gender",
+							"value": "female"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PathParam",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ergast.com/:apiurl/:year/:resource?code=ALG",
+					"protocol": "http",
+					"host": [
+						"ergast",
+						"com"
+					],
+					"path": [
+						":apiurl",
+						":year",
+						":resource"
+					],
+					"query": [
+						{
+							"key": "code",
+							"value": "ALG"
+						}
+					],
+					"variable": [
+						{
+							"key": "apiurl",
+							"value": "api/f1"
+						},
+						{
+							"key": "year",
+							"value": "2019"
+						},
+						{
+							"key": "resource",
+							"value": "drivers.json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PathParamOpenCartApp",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://naveenautomationlabs.com/:application/index.php?route=account/register",
+					"protocol": "https",
+					"host": [
+						"naveenautomationlabs",
+						"com"
+					],
+					"path": [
+						":application",
+						"index.php"
+					],
+					"query": [
+						{
+							"key": "route",
+							"value": "account/register"
+						}
+					],
+					"variable": [
+						{
+							"key": "application",
+							"value": "opencart"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

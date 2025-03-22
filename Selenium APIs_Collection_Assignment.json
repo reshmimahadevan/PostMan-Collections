@@ -1,0 +1,302 @@
+{
+	"info": {
+		"_postman_id": "9c258911-d3ed-4ec6-8a2e-2b73235d36d1",
+		"name": "Selenium APIs Assignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31594035"
+	},
+	"item": [
+		{
+			"name": "1-LaunchBrowser",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"capabilities\": {\r\n    \"alwaysMatch\": {\r\n      \"browserName\": \"chrome\"\r\n    }\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4444/session",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4444",
+					"path": [
+						"session"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2-Enter URL",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"url\": \"https://naveenautomationlabs.com/opencart/index.php?route=account/login\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4444/session/bef32b99e0aee941add5a9b552e79a58/url",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4444",
+					"path": [
+						"session",
+						"bef32b99e0aee941add5a9b552e79a58",
+						"url"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3-FindElement -Search-Email",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"using\": \"xpath\",\r\n  \"value\": \"//input[@id='input-email']\"\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4444/session/bef32b99e0aee941add5a9b552e79a58/element",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4444",
+					"path": [
+						"session",
+						"bef32b99e0aee941add5a9b552e79a58",
+						"element"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4-SendKeys -Email",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"text\": \"fakemail@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4444/session/bef32b99e0aee941add5a9b552e79a58/element/f.A8F0EF083CE260BE9130047BE070125E.d.F61F4D1C4C21D243EC0E76A61D83480B.e.1/value",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4444",
+					"path": [
+						"session",
+						"bef32b99e0aee941add5a9b552e79a58",
+						"element",
+						"f.A8F0EF083CE260BE9130047BE070125E.d.F61F4D1C4C21D243EC0E76A61D83480B.e.1",
+						"value"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5-FindElement -Search-Password",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"using\": \"xpath\",\r\n  \"value\": \"//input[@id='input-password']\"\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4444/session/bef32b99e0aee941add5a9b552e79a58/element",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4444",
+					"path": [
+						"session",
+						"bef32b99e0aee941add5a9b552e79a58",
+						"element"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6-SendKeys -Password",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"text\": \"Abcd1234$\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4444/session/bef32b99e0aee941add5a9b552e79a58/element/f.A8F0EF083CE260BE9130047BE070125E.d.F61F4D1C4C21D243EC0E76A61D83480B.e.3/value",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4444",
+					"path": [
+						"session",
+						"bef32b99e0aee941add5a9b552e79a58",
+						"element",
+						"f.A8F0EF083CE260BE9130047BE070125E.d.F61F4D1C4C21D243EC0E76A61D83480B.e.3",
+						"value"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7-FindElement -Search-Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"using\": \"xpath\",\r\n  \"value\": \"//input[@value='Login']\"\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4444/session/bef32b99e0aee941add5a9b552e79a58/element",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4444",
+					"path": [
+						"session",
+						"bef32b99e0aee941add5a9b552e79a58",
+						"element"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8-ClickOnLogin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4444/session/bef32b99e0aee941add5a9b552e79a58/element/f.A8F0EF083CE260BE9130047BE070125E.d.F61F4D1C4C21D243EC0E76A61D83480B.e.12/click",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4444",
+					"path": [
+						"session",
+						"bef32b99e0aee941add5a9b552e79a58",
+						"element",
+						"f.A8F0EF083CE260BE9130047BE070125E.d.F61F4D1C4C21D243EC0E76A61D83480B.e.12",
+						"click"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

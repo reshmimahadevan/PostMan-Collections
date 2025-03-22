@@ -1,0 +1,242 @@
+{
+	"info": {
+		"_postman_id": "8ef792f4-2e06-4a90-8179-33c00954dede",
+		"name": "Selenium WD APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31594035"
+	},
+	"item": [
+		{
+			"name": "1-LaunchBrowser",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"capabilities\": {\n    \"alwaysMatch\": {\n      \"browserName\": \"chrome\"\n    }\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4444/session",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4444",
+					"path": [
+						"session"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2-Enter URL",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:4444/session/a0c86740e5997f175d71a03b060b8940/url",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4444",
+					"path": [
+						"session",
+						"a0c86740e5997f175d71a03b060b8940",
+						"url"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3-FindElement-Search",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"using\": \"xpath\",\n  \"value\": \"//textarea[@name='q']\"\n}\n\n//find element + action(sendkeys)",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4444/session/a0c86740e5997f175d71a03b060b8940/element",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4444",
+					"path": [
+						"session",
+						"a0c86740e5997f175d71a03b060b8940",
+						"element"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4-SendKeys",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "//sendKeys -- value\n\n{\n  \"text\": \"Hello, Naveen Automation Labs!\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4444/session/a0c86740e5997f175d71a03b060b8940/element/f.56B4B685CE421703E3F419BDF0E932CB.d.66972A30EA68A025DC2BE1A4C1138343.e.2/value",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4444",
+					"path": [
+						"session",
+						"a0c86740e5997f175d71a03b060b8940",
+						"element",
+						"f.56B4B685CE421703E3F419BDF0E932CB.d.66972A30EA68A025DC2BE1A4C1138343.e.2",
+						"value"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5-FindLink",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"using\": \"xpath\",\n  \"value\": \"//a[normalize-space()='50 Google Workspace customers across 50 states']\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4444/session/456a4473f25e8886cfd829537a04be47/element",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4444",
+					"path": [
+						"session",
+						"456a4473f25e8886cfd829537a04be47",
+						"element"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6-ClickOnLink",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4444/session/456a4473f25e8886cfd829537a04be47/element/f.19D954AC1F5B1DB39F2B293024A76C67.d.BD49E4111FF935AE6AF05FCF9CEA3981.e.17/click",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4444",
+					"path": [
+						"session",
+						"456a4473f25e8886cfd829537a04be47",
+						"element",
+						"f.19D954AC1F5B1DB39F2B293024A76C67.d.BD49E4111FF935AE6AF05FCF9CEA3981.e.17",
+						"click"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7-SessionID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4444/session/0454c408e6d3b66bba1a2085e5964af0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4444",
+					"path": [
+						"session",
+						"0454c408e6d3b66bba1a2085e5964af0"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

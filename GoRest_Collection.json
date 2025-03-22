@@ -1,0 +1,150 @@
+{
+	"info": {
+		"_postman_id": "9b369525-0490-4f47-a207-91a888a37744",
+		"name": "GoRest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31594035"
+	},
+	"item": [
+		{
+			"name": "CreateNewUser",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.request.headers.add(\r",
+							"{\r",
+							"key:'Authorization',\r",
+							"value:'Bearer eee76542418e00fcfd20bc02760ba686cae83767f8a2b3e3c29d692e333bf2ad' \r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eee76542418e00fcfd20bc02760ba686cae83767f8a2b3e3c29d692e333bf2ad",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"name\" :\"R1\",\r\n   \"email\" :\"r1@gmail.com\",\r\n   \"gender\":\"Female\",\r\n   \"status\" :\"inactive\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/users",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetUserByID_7701298",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eee76542418e00fcfd20bc02760ba686cae83767f8a2b3e3c29d692e333bf2ad",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/users/7701298",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users",
+						"7701298"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetUserByID_7702561",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eee76542418e00fcfd20bc02760ba686cae83767f8a2b3e3c29d692e333bf2ad",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/users/7702605",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users",
+						"7702605"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllUsers",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eee76542418e00fcfd20bc02760ba686cae83767f8a2b3e3c29d692e333bf2ad",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/users",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

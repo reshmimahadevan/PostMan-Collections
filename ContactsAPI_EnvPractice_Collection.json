@@ -1,0 +1,209 @@
+{
+	"info": {
+		"_postman_id": "590c19e2-9586-4857-b9db-012a0b3ab6f1",
+		"name": "ContactsAPI_EnvPractice",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31594035"
+	},
+	"item": [
+		{
+			"name": "Login User-GetToken",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"email\" : \"{{username}}\" ,\n\"password\" :\"{{password}}\",\n\"age\" :{{age}}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/users/login",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GETAllContacts",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{vault:vault}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseURL}}/contacts",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"contacts"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a user by id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{vault:vault}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseURL}}/contacts/67a6416281016d001366f4f8",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"contacts",
+						"67a6416281016d001366f4f8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a Contact",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{vault:vault}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"RM1\",\n    \"lastName\": \"automation\",\n    \"birthdate\": \"2000-01-01\",\n    \"email\": \"rm1@gmail.com\",\n    \"phone\": \"8898987898\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/contacts",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"contacts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update a Contact",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{vault:vault}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"cypress\",\n    \"lastName\": \"automation\",\n    \"birthdate\": \"1999-01-01\",\n    \"email\": \"c@gmail.com\",\n    \"phone\": \"9898987789\",\n    \"city\": \"Bangalore\",\n    \"country\": \"India\",\n    \"stateProvince\": \"KA\",\n    \"street1\": \"abc street\",\n    \"street2\": \"Raj Colony\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/contacts/123",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"contacts",
+						"123"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{vault:vault}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseURL}}/users/logout",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "https://thinking-tester-contact-list.herokuapp.com",
+			"type": "string"
+		}
+	]
+}

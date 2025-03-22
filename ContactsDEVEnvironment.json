@@ -1,0 +1,33 @@
+{
+	"id": "06e5e65b-4ae8-449f-af60-dec403d7321c",
+	"name": "ContactsDEV",
+	"values": [
+		{
+			"key": "baseURL",
+			"value": "https://www.abc.dev.com",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "username",
+			"value": "reshmidev",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "password",
+			"value": "reshmidev",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "age",
+			"value": "18",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2025-03-20T00:53:00.164Z",
+	"_postman_exported_using": "Postman/11.37.1"
+}

@@ -1,0 +1,393 @@
+{
+	"info": {
+		"_postman_id": "6b6f7a1f-872c-43db-b6e2-5fc21cca4c19",
+		"name": "ContactsAPI_Vault_Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31594035"
+	},
+	"item": [
+		{
+			"name": "Login User-GetToken",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\n\n{\n\"email\" : \"ema@gmail.com\" ,\n\"password\" :\"testerema\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://thinking-tester-contact-list.herokuapp.com/users/login",
+					"protocol": "https",
+					"host": [
+						"thinking-tester-contact-list",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{vault:vault}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://thinking-tester-contact-list.herokuapp.com/users/logout",
+					"protocol": "https",
+					"host": [
+						"thinking-tester-contact-list",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"users",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GETAllContacts",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{vault:vault}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://thinking-tester-contact-list.herokuapp.com/contacts",
+					"protocol": "https",
+					"host": [
+						"thinking-tester-contact-list",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"contacts"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a user by id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{vault:vault}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://thinking-tester-contact-list.herokuapp.com/contacts/67a6416281016d001366f4f8",
+					"protocol": "https",
+					"host": [
+						"thinking-tester-contact-list",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"contacts",
+						"67a6416281016d001366f4f8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a Contact",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{vault:vault}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"RM1\",\n    \"lastName\": \"automation\",\n    \"birthdate\": \"2000-01-01\",\n    \"email\": \"rm1@gmail.com\",\n    \"phone\": \"8898987898\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://thinking-tester-contact-list.herokuapp.com/contacts",
+					"protocol": "https",
+					"host": [
+						"thinking-tester-contact-list",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"contacts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update a Contact",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2E2MzhhNTQwMzAzYTAwMTMxZmJkMTkiLCJpYXQiOjE3MzkyMzkwMDl9.Gts62C41LUVns_uYlarznfDMsccoI4LMqbGlb7jn3Qc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"cypress\",\n    \"lastName\": \"automation\",\n    \"birthdate\": \"1999-01-01\",\n    \"email\": \"c@gmail.com\",\n    \"phone\": \"9898987789\",\n    \"city\": \"Bangalore\",\n    \"country\": \"India\",\n    \"stateProvince\": \"KA\",\n    \"street1\": \"abc street\",\n    \"street2\": \"Raj Colony\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://thinking-tester-contact-list.herokuapp.com/contacts/123",
+					"protocol": "https",
+					"host": [
+						"thinking-tester-contact-list",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"contacts",
+						"123"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a Contact",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2E2MzhhNTQwMzAzYTAwMTMxZmJkMTkiLCJpYXQiOjE3MzkyMzkwMDl9.Gts62C41LUVns_uYlarznfDMsccoI4LMqbGlb7jn3Qc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://thinking-tester-contact-list.herokuapp.com/contacts/67a6429b81016d001366f500",
+					"protocol": "https",
+					"host": [
+						"thinking-tester-contact-list",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"contacts",
+						"67a6429b81016d001366f500"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdatePartially",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2E2MzhhNTQwMzAzYTAwMTMxZmJkMTkiLCJpYXQiOjE3MzkyMzkwMDl9.Gts62C41LUVns_uYlarznfDMsccoI4LMqbGlb7jn3Qc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"cypress1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://thinking-tester-contact-list.herokuapp.com/contacts/67a6416281016d001366f4f8",
+					"protocol": "https",
+					"host": [
+						"thinking-tester-contact-list",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"contacts",
+						"67a6416281016d001366f4f8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2E2MzhhNTQwMzAzYTAwMTMxZmJkMTkiLCJpYXQiOjE3MzkyMzkwMDl9.Gts62C41LUVns_uYlarznfDMsccoI4LMqbGlb7jn3Qc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "file",
+					"file": {}
+				},
+				"url": {
+					"raw": "https://thinking-tester-contact-list.herokuapp.com/users/me",
+					"protocol": "https",
+					"host": [
+						"thinking-tester-contact-list",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"users",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddUser",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2E2MzhhNTQwMzAzYTAwMTMxZmJkMTkiLCJpYXQiOjE3MzkyMzkwMDl9.Gts62C41LUVns_uYlarznfDMsccoI4LMqbGlb7jn3Qc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"R\",\r\n    \"lastName\": \"M\",\r\n    \"email\": \"bh@gmail.com\",\r\n    \"password\": \"myPassword\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://thinking-tester-contact-list.herokuapp.com/users",
+					"protocol": "https",
+					"host": [
+						"thinking-tester-contact-list",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteUser",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2E2NDc0NjQwMzAzYTAwMTMxZmJkOWIiLCJpYXQiOjE3MzkyMzk0OTZ9.qJsZkmUMS7FjTsn6LDz4tTOFhtksoAgkCXAj3Km6Mjc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://thinking-tester-contact-list.herokuapp.com/users/me",
+					"protocol": "https",
+					"host": [
+						"thinking-tester-contact-list",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"users",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateUser",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2E2MzhhNTQwMzAzYTAwMTMxZmJkMTkiLCJpYXQiOjE3MzkyNDE3OTV9.2F-ygOXgn6NFC4YHZwqCCij_b1HgL1cHJqxpW3Lq0Tk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"Reshmi\",\r\n    \"lastName\": \"M\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://thinking-tester-contact-list.herokuapp.com/users/me",
+					"protocol": "https",
+					"host": [
+						"thinking-tester-contact-list",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"users",
+						"me"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,357 @@
+{
+	"info": {
+		"_postman_id": "310832e9-fcae-4c5e-9d32-babe9f7d12d6",
+		"name": "BookingAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31594035"
+	},
+	"item": [
+		{
+			"name": "CreateToken",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"{{username}}\",\r\n    \"password\": \"{{password}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/auth",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllBookings",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/booking",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"booking"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateNewBooking",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const bookingID = pm.response.json().bookingid;\r",
+							"console.log(bookingID);\r",
+							"pm.variables.set('booking_ID',bookingID);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstname\": \"Resh\",\n    \"lastname\": \"A\",\n    \"totalprice\": 111,\n    \"depositpaid\": true,\n    \"bookingdates\": {\n        \"checkin\": \"2018-01-01\",\n        \"checkout\": \"2019-01-01\"\n    },\n    \"additionalneeds\": \"Breakfast\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/booking",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"booking"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetBookingByID",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({\r",
+							"    method: 'POST',\r",
+							"    url: pm.environment.get(\"baseURL\") + '/booking',\r",
+							"    header: {\r",
+							"        'Content-Type': 'application/json'\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify({\r",
+							"\r",
+							"            \"firstname\": \"Resh\",\r",
+							"            \"lastname\": \"A\",\r",
+							"            \"totalprice\": 111,\r",
+							"            \"depositpaid\": true,\r",
+							"            \"bookingdates\": {\r",
+							"                \"checkin\": \"2018-01-01\",\r",
+							"                \"checkout\": \"2019-01-01\"\r",
+							"            },\r",
+							"            \"additionalneeds\": \"Breakfast\"\r",
+							"\r",
+							"        })\r",
+							"    }\r",
+							"}, function (error, response) {\r",
+							"    if (error) {\r",
+							"        console.log(error);\r",
+							"    } else {\r",
+							"        const bookingID = pm.response.json().bookingid;\r",
+							"        console.log(bookingID);\r",
+							"        pm.variables.set(\"booking_ID\", bookingID);\r",
+							"    }\r",
+							"\r",
+							"})\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/booking/{{booking_ID}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"booking",
+						"{{booking_ID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateABookingByID",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "token={{newtoken_id}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstname\": \"Reshmi\",\n    \"lastname\": \"A\",\n    \"totalprice\": 1000,\n    \"depositpaid\": true,\n    \"bookingdates\": {\n        \"checkin\": \"2018-01-01\",\n        \"checkout\": \"2019-01-01\"\n    },\n    \"additionalneeds\": \"Dinner\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/booking/{{booking_ID}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"booking",
+						"{{booking_ID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PartiallyUpdateABookingByID",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "token={{newtoken_id}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstname\": \"Reshu\",\n    \"lastname\": \"A\",\n    \"totalprice\": 2000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/booking/{{booking_ID}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"booking",
+						"{{booking_ID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteABookingByID",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "token={{newtoken_id}}"
+					}
+				],
+				"url": {
+					"raw": "{{baseURL}}/booking/{{booking_ID}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"booking",
+						"{{booking_ID}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"// Check if the request method is PUT or DELETE or PATCH\r",
+					"//if(pm.info.requestName == \"UpdateABookingByID\" || pm.info.requestName == \"DeleteABookingByID || pm.info.requestName == \"PartiallyUpdateABookingByID)\r",
+					"if (pm.request.method == \"PUT\" || pm.request.method == \"DELETE\" || pm.request.method == \"PATCH\") {\r",
+					"\r",
+					"    // Generate token using Auth API and fetch its ID from the response\r",
+					"    pm.sendRequest({\r",
+					"        method: 'POST',\r",
+					"        url: pm.environment.get(\"baseURL\") + '/auth',\r",
+					"        header: {\r",
+					"            'Content-Type': 'application/json'\r",
+					"        },\r",
+					"        body: {\r",
+					"            mode: 'raw',\r",
+					"            raw: JSON.stringify({\r",
+					"                \"username\": pm.environment.get(\"username\"),\r",
+					"                \"password\": pm.environment.get(\"password\")\r",
+					"            })\r",
+					"        }\r",
+					"    }, function (error, response) {\r",
+					"        if (error) {\r",
+					"            console.log(error);\r",
+					"        }  else{\r",
+					"            //JSON to Javascript object\r",
+					"            const responseBody = JSON.parse(response.text());\r",
+					"            const tokenid = responseBody.token;\r",
+					"            console.log(tokenid);\r",
+					"            pm.variables.set(\"newtoken_id\",tokenid);\r",
+					"        }\r",
+					"\r",
+					"    })\r",
+					"}"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
