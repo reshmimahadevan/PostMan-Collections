@@ -1,0 +1,39 @@
+{
+	"id": "22bcb810-beb0-4c6d-a799-cee5e13c3487",
+	"name": "ContactEnvironment",
+	"values": [
+		{
+			"key": "baseURL",
+			"value": "https://thinking-tester-contact-list.herokuapp.com",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "email",
+			"value": "ema@gmail.com",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "password",
+			"value": "testerema",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "id",
+			"value": "",
+			"type": "any",
+			"enabled": false
+		},
+		{
+			"key": "userid",
+			"value": "",
+			"type": "any",
+			"enabled": false
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2025-03-20T00:52:43.515Z",
+	"_postman_exported_using": "Postman/11.37.1"
+}
