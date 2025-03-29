@@ -1,0 +1,28 @@
+[
+
+{
+    "name": "Seetha",
+    "gender": "female",
+    "status": "active",
+    "newstatus":"active"
+	
+},
+
+{
+	
+    "name": "Aarohi",
+    "gender": "female",
+    "status": "inactive",
+    "newstatus":"active"
+
+},
+
+{
+	"name": "Reshmi",
+    "gender": "female",
+    "status": "active",
+    "newstatus":"active"
+
+}
+
+]
