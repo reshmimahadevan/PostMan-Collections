@@ -7,6 +7,68 @@
 	},
 	"item": [
 		{
+			"name": "CreateMultipleUsers",
+			"item": [
+				{
+					"name": "6-CreateMultipleUsers",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"requestJson\", JSON.stringify(pm.iterationData.toObject()));",
+									"",
+									"",
+									"//data.json --> read --> ",
+									"//pm.iterationData -- json --> toObject -- JS --> pure JSON Stringfy --> JSON",
+									"",
+									"",
+									"//JS ---> JSON "
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{requestJson}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://httpbin.org/post",
+							"protocol": "http",
+							"host": [
+								"httpbin",
+								"org"
+							],
+							"path": [
+								"post"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "1-AddHeaders",
 			"event": [
 				{
@@ -232,63 +294,6 @@
 						"public",
 						"v2",
 						"users"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "6-CreateMultipleUsers",
-			"event": [
-				{
-					"listen": "prerequest",
-					"script": {
-						"exec": [
-							"pm.environment.set(\"requestJson\", JSON.stringify(pm.iterationData.toObject()));",
-							"",
-							"",
-							"//data.json --> read --> ",
-							"//pm.iterationData -- json --> toObject -- JS --> pure JSON Stringfy --> JSON",
-							"",
-							"",
-							"//JS ---> JSON "
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				},
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							""
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{{requestJson}}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://httpbin.org/post",
-					"protocol": "http",
-					"host": [
-						"httpbin",
-						"org"
-					],
-					"path": [
-						"post"
 					]
 				}
 			},
