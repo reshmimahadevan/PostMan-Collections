@@ -52,30 +52,6 @@
 			"response": []
 		},
 		{
-			"name": "Logout",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "{{myTokenID}}",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "{{baseURL}}/users/logout",
-					"host": [
-						"{{baseURL}}"
-					],
-					"path": [
-						"users",
-						"logout"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "GETAllContacts",
 			"request": {
 				"method": "GET",
@@ -315,30 +291,6 @@
 			"response": []
 		},
 		{
-			"name": "DeleteUser",
-			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "{{myTokenID}}",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "{{baseURL}}/users/me",
-					"host": [
-						"{{baseURL}}"
-					],
-					"path": [
-						"users",
-						"me"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "UpdateUser",
 			"request": {
 				"method": "PATCH",
@@ -366,6 +318,54 @@
 					"path": [
 						"users",
 						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteUser",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{myTokenID}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseURL}}/users/me",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{myTokenID}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseURL}}/users/logout",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"logout"
 					]
 				}
 			},
