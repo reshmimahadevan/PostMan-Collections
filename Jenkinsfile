@@ -39,15 +39,15 @@ pipeline {
         }
 
         stage('Publish HTML Extra Report') {
-    steps {
-        publishHTML([ 
-            allowMissing: false,
-            alwaysLinkToLastBuild: false,
-            keepAll: true,
-            reportDir: 'newman',  // Ensure this path is correct
-            reportFiles: '**/*.html',  // Capture all HTML reports
-            reportName: 'HTML Extra API Report',
-            reportTitles: ''
+            steps {
+               publishHTML([ 
+               allowMissing: false,
+               alwaysLinkToLastBuild: false,
+               keepAll: true,
+               reportDir: 'newman',  // Ensure this path is correct
+               reportFiles: '**/*.html',  // Capture all HTML reports
+               reportName: 'HTML Extra API Report',
+               reportTitles: ''
         ])
     }
 }
