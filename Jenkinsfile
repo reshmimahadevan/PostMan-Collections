@@ -28,13 +28,19 @@ pipeline {
 
         stage('Run API Test Cases') {
             steps {
-                bat 'docker run --user root -v "%WORKSPACE%/newman:/app/results" reshmimahadevan/gorestapi:1.0'
+                bat 'docker run --rm -v "C:/jenkins/workspace/myjob/newman:/app/results" reshmimahadevan/gorestapi:1.0'
+            }
+        }
+
+        stage('Verify Reports') {
+            steps {
+                bat 'dir C:/jenkins/workspace/myjob/newman'
             }
         }
 
         stage('Publish HTML Extra Report') {
             steps {
-                publishHTML([
+                publishHTML([ 
                     allowMissing: false,
                     alwaysLinkToLastBuild: false,
                     keepAll: true,
@@ -50,6 +56,13 @@ pipeline {
             steps {
                 echo "Deploying to PROD"
             }
+        }
+
+    }
+    
+    post {
+        always {
+            archiveArtifacts artifacts: 'newman/*.json', allowEmptyArchive: true
         }
     }
 }
