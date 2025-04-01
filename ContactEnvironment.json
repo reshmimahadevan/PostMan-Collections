@@ -10,13 +10,13 @@
 		},
 		{
 			"key": "email",
-			"value": "ema@gmail.com",
+			"value": "re@gmail.com",
 			"type": "default",
 			"enabled": true
 		},
 		{
 			"key": "password",
-			"value": "testerema",
+			"value": "testerre",
 			"type": "default",
 			"enabled": true
 		},
@@ -34,6 +34,6 @@
 		}
 	],
 	"_postman_variable_scope": "environment",
-	"_postman_exported_at": "2025-03-20T00:52:43.515Z",
-	"_postman_exported_using": "Postman/11.37.1"
+	"_postman_exported_at": "2025-04-01T01:31:31.303Z",
+	"_postman_exported_using": "Postman/11.39.0"
 }
