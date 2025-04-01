@@ -39,18 +39,18 @@ pipeline {
         }
 
         stage('Publish HTML Extra Report') {
-            steps {
-                publishHTML([ 
-                    allowMissing: false,
-                    alwaysLinkToLastBuild: false,
-                    keepAll: true,
-                    reportDir: 'newman',
-                    reportFiles: 'gorest.html',
-                    reportName: 'HTML Extra API Report',
-                    reportTitles: ''
-                ])
-            }
-        }
+    steps {
+        publishHTML([ 
+            allowMissing: false,
+            alwaysLinkToLastBuild: false,
+            keepAll: true,
+            reportDir: 'newman',  // Ensure this path is correct
+            reportFiles: '**/*.html',  // Capture all HTML reports
+            reportName: 'HTML Extra API Report',
+            reportTitles: ''
+        ])
+    }
+}
 
         stage("Deploy to PROD") {
             steps {
@@ -62,9 +62,10 @@ pipeline {
     
     post {
     always {
-        archiveArtifacts artifacts: 'newman/*', allowEmptyArchive: true
+        archiveArtifacts artifacts: 'newman/*.json,newman/*.html', allowEmptyArchive: true
     }
 }
+
 
 
 }
