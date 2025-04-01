@@ -34,7 +34,7 @@ pipeline {
 
         stage('Verify Reports') {
             steps {
-                bat 'dir C:/jenkins/workspace/myjob/newman'
+                bat 'dir C:\\jenkins\\workspace\\PostManWithPipelineProject\\newman'
             }
         }
 
