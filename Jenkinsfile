@@ -28,8 +28,8 @@ pipeline {
 
         stage('Run API Test Cases') {
             steps {
-                bat 'docker run --rm -v "C:/jenkins/workspace/myjob/newman:/app/results" reshmimahadevan/gorestapi:1.0'
-            }
+                bat 'docker run -v %cd%/newman:/app/newman reshmimahadevan/gorestapi:1.0'
+}
         }
 
         stage('Verify Reports') {
@@ -65,4 +65,11 @@ pipeline {
             archiveArtifacts artifacts: 'newman/*.json', allowEmptyArchive: true
         }
     }
+
+    post {
+    success {
+        archiveArtifacts artifacts: 'newman/gorest.html', fingerprint: true
+    }
+}
+
 }
