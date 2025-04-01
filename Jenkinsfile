@@ -62,10 +62,7 @@ pipeline {
     
     post {
     always {
-        archiveArtifacts artifacts: 'newman/*.json', allowEmptyArchive: true
-    }
-    success {
-        archiveArtifacts artifacts: 'newman/gorest.html', fingerprint: true
+        archiveArtifacts artifacts: 'newman/*', allowEmptyArchive: true
     }
 }
 
