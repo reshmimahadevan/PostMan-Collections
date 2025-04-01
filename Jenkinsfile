@@ -60,12 +60,9 @@ pipeline {
 
     }
     
-    post {
-    always {
-        archiveArtifacts artifacts: 'newman/*.json,newman/*.html', allowEmptyArchive: true
+         post {
+            always {
+            archiveArtifacts artifacts: 'newman/*.json,newman/*.html', allowEmptyArchive: true
+         }
     }
-}
-
-
-
 }
