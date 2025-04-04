@@ -28,41 +28,28 @@ pipeline {
 
         stage('Run API Test Cases') {
             steps {
-                bat 'docker run -v %cd%/newman:/app/newman reshmimahadevan/gorestapi:1.0'
-}
-        }
-
-        stage('Verify Reports') {
-            steps {
-                bat 'dir C:\\Users\\reshm\\.jenkins\\workspace\\PostManWithPipelineProject\\newman'
+                bat 'docker run -v %cd%\\newman:/app/newman reshmimahadevan/gorestapi:1.0'
             }
         }
 
         stage('Publish HTML Extra Report') {
             steps {
-               publishHTML([ 
-               allowMissing: false,
-               alwaysLinkToLastBuild: false,
-               keepAll: true,
-               reportDir: 'newman',  // Ensure this path is correct
-               reportFiles: '**/*.html',  // Capture all HTML reports
-               reportName: 'HTML Extra API Report',
-               reportTitles: ''
-        ])
-    }
-}
+                publishHTML([
+                    allowMissing: false,
+                    alwaysLinkToLastBuild: false,
+                    keepAll: true,
+                    reportDir: 'newman',
+                    reportFiles: 'gorest.html',
+                    reportName: 'HTML Extra API Report',
+                    reportTitles: ''
+                ])
+            }
+        }
 
         stage("Deploy to PROD") {
             steps {
                 echo "Deploying to PROD"
             }
         }
-
-    }
-    
-         post {
-            always {
-            archiveArtifacts artifacts: 'newman/*.json,newman/*.html', allowEmptyArchive: true
-         }
     }
 }
