@@ -28,6 +28,7 @@ pipeline {
 
         stage('Run API Test Cases') {
             steps {
+                bat 'if not exist newman mkdir newman'
                 bat 'docker run -v %cd%\\newman:/app/newman reshmimahadevan/gorest:1.0'
             }
         }
