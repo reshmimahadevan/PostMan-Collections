@@ -40,7 +40,7 @@ pipeline {
                     alwaysLinkToLastBuild: false,
                     keepAll: true,
                     reportDir: 'newman',
-                    reportFiles: 'gorest.html',
+                    reportFiles: '*.html',
                     reportName: 'HTML Extra API Report',
                     reportTitles: ''
                 ])
